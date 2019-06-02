@@ -15,6 +15,7 @@ import org.bukkit.util.Vector;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
+//TODO Refractor this into a loop or two
 class FindChestsThread extends Thread {
     private World world;
     private ChunkSnapshot[][] snapshots;

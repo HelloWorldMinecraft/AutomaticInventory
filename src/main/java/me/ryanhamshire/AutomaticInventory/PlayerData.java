@@ -14,6 +14,8 @@ import java.io.StringWriter;
 import java.util.List;
 import java.util.UUID;
 
+//TODO Metadata
+//TODO Spaces in keys
 class PlayerData {
     private final static String METADATA_TAG = "AI_PlayerData";
     int firstEmptySlot = -1;

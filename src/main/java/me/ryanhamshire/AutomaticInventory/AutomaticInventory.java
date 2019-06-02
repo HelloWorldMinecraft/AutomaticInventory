@@ -23,6 +23,8 @@ import java.util.*;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
+//TODO Fix all the bad syntax and message sending code
+//TODO Switch to metadata for storage of data if possible
 public class AutomaticInventory extends JavaPlugin {
     //for convenience, a reference to the instance of this plugin
     public static AutomaticInventory instance;

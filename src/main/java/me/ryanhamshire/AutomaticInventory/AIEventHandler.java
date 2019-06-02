@@ -28,7 +28,8 @@ import org.bukkit.projectiles.ProjectileSource;
 
 import java.util.ArrayList;
 import java.util.Comparator;
-
+//TODO Public classes
+//TODO Move all the "Tasks" out of here
 class AIEventHandler implements Listener {
     static void sortPlayerIfEnabled(Inventory inventory) {
         new InventorySorter(inventory, 9).run();

@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 
+//TODO Why is a config folder not dynamically generated with the file class?
 class DataStore {
     private final static String dataLayerFolderPath = "plugins" + File.separator + "AutomaticInventory";
     final static String playerDataFolderPath = dataLayerFolderPath + File.separator + "PlayerData";

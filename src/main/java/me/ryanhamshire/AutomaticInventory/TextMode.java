@@ -4,6 +4,7 @@ package me.ryanhamshire.AutomaticInventory;
 
 import org.bukkit.ChatColor;
 
+//TODO Conventions + a static constants class
 //just a few constants for chat color codes
 class TextMode {
     final static ChatColor Info = ChatColor.AQUA;

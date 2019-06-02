@@ -2,6 +2,7 @@
 
 package me.ryanhamshire.AutomaticInventory;
 
+//TODO Make help less bothersome
 public enum Messages {
     AutoSortHelp,
     ChestSortEnabled,
