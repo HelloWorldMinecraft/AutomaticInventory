@@ -12,7 +12,7 @@ install:
   - sdk install gradle 5.5
 
 #Our projects don't have a gradle wrapper
-script: gradle build
+script: gradle build -Prelease
 
 #Don't build untagged branches
 branches:
