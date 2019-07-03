@@ -1,7 +1,6 @@
 version = "3.0.0"
 
-File pluginSource = project.file("../plugin.gradle")
-apply from: pluginSource.exists() ? pluginSource : "https://raw.githubusercontent.com/HelloWorldMinecraft/SpigotPlugin/master/plugin.gradle"
+apply from: "https://raw.githubusercontent.com/HelloWorldMinecraft/BuildSystem/master/plugin.gradle"
 
 repositories {
     mavenCentral()
