@@ -1,51 +1,12 @@
-import java.time.LocalDateTime
-import java.time.ZoneId
-import java.time.format.DateTimeFormatter
-
-buildscript {
-    repositories {
-        jcenter()
-        mavenCentral()
-        maven {
-            url "https://plugins.gradle.org/m2/"
-        }
-    }
-    dependencies {
-        classpath "com.github.jengelman.gradle.plugins:shadow:4.0.1"
-    }
-}
-
-apply plugin: "com.github.johnrengelman.shadow"
-apply plugin: "java"
-apply plugin: "idea"
-
-configurations {
-    compile.extendsFrom(bundle)
-}
-
 version = "3.0.0"
-if (!project.hasProperty("Release")) version += '-' + LocalDateTime.now(ZoneId.of("America/Chicago")).format(DateTimeFormatter.ofPattern("yyMMddHHmm"))
 
+File pluginSource = project.file("../plugin.gradle")
+apply from: pluginSource.exists() ? pluginSource : "https://raw.githubusercontent.com/HelloWorldMinecraft/SpigotPlugin/master/plugin.gradle"
 
 repositories {
     mavenCentral()
-    maven { url 'https://hub.spigotmc.org/nexus/content/repositories/public/' }
 }
 
 dependencies {
-    compile "org.spigotmc:spigot-api:1.14.3-SNAPSHOT"
     compile "com.google.code.findbugs:jsr305:3.0.0"
 }
-
-processResources {
-    expand project.properties
-}
-
-
-jar {
-    baseName = "Generated-${project.name}"
-    version = rootProject?.version ?: project.version
-    destinationDir = rootProject?.libsDir ?: libsDir
-}
-
-build.dependsOn = ['jar']
