@@ -1,0 +1,30 @@
+# This is a basic workflow that is manually triggered
+
+name: Build Artifacts
+
+# Controls when the action will run. Workflow runs when manually triggered using the UI
+# or API.
+on:
+  push:
+    branches: main
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "greet"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-20.04
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build Plugin
+        run: |
+          ./gradlew build
+
+      - name: Uplaod Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          path: |
+            ./build/libs/*

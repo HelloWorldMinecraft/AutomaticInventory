@@ -1,11 +1,56 @@
-version = "3.0.0"
-
-apply from: rootProject.file("../plugin.gradle").exists() ? rootProject.file("../plugin.gradle") : "https://raw.githubusercontent.com/HelloWorldMinecraft/BuildSystem/master/plugin.gradle"
-
-repositories {
-    mavenCentral()
+plugins {
+    id 'idea'
+    id 'kr.entree.spigradle' version '2.1.1'
 }
 
 dependencies {
-    compile "com.google.code.findbugs:jsr305:3.0.0"
+    compileOnly spigot("1.16.4")
+}
+
+spigot {
+    authors "BigScary", "Red3842"
+    apiVersion "1.16.4"
+    commands {
+        debugai {
+            description "Debug command for AutomaticInventory."
+            usage "/debugai"
+            permission "automaticinventory.debugai"
+        }
+        autosort {
+            description "Toggles auto-sorting options."
+            usage "/autosort"
+        }
+        depositall {
+            description "Deposits your non-hotbar inventory into any nearby chests containing matching items."
+            aliases "da", "dumpitems", "dumploot", "depositloot"
+            usage "/depositall"
+            permission "automaticinventory.depositall"
+        }
+    }
+    permissions {
+        "automaticinventory.debugai" {
+            description "Grants permission to use /DebugAI."
+            defaults "op"
+        }
+        "automaticinventory.sortinventory" {
+            description "Grants permission to auto-sort personal inventory."
+            defaults "true"
+        }
+        "automaticinventory.sortchests" {
+            description "Grants permission to auto-sort chest content."
+            defaults "true"
+        }
+        "automaticinventory.refillstacks" {
+            description "Grants permission to auto-refill depleted hotbar stacks."
+            defaults "true"
+        }
+        "automaticinventory.quickdeposit" {
+            description "Grants permission to auto-deposit matching items into a chest with shift-right-click."
+            defaults "true"
+        }
+        "automaticinventory.depositall" {
+            description "Grants permission to use /DepositAll."
+            defaults "true"
+        }
+    }
 }
